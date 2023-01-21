@@ -1,5 +1,5 @@
 # CS-125-Project
-## Project Name: 
+## Project Name: Level Up Fitness
 ## Quarter: Winter 2023
 ## Team Name: [insert group name]
 ## Team Number: 3
