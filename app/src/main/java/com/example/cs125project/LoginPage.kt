@@ -1,4 +1,4 @@
-package com.example.levelupfitness
+package com.example.cs125project
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,7 @@ import android.widget.EditText
 import android.widget.TextView
 
 
-class loginPage : AppCompatActivity() {
+class LoginPage : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
