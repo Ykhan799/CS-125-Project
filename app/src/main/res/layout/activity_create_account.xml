@@ -59,7 +59,7 @@
         android:layout_centerHorizontal="true"
         android:text="Already have an account? Login"
         android:textColor="@color/black"
-        android:textSize="10dp"
+        android:textSize="13dp"
         android:id="@+id/alreadyCreatedButton"/>
 
     <LinearLayout
