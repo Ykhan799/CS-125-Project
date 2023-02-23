@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginPage">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Level Up! Fitness"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="55dp"
+        android:translationY="250px"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_directions_run_24"
+        android:translationY="750px"
+        android:scaleX="5"
+        android:scaleY="5"/>
+
+    <EditText
+        android:layout_width="1000px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="E-mail"
+        android:id="@+id/email"
+        android:background="#25000000"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:translationY="1000px"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/baseline_email_24"/>
+
+    <EditText
+        android:layout_width="1000px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Password"
+        android:id="@+id/password"
+        android:background="#25000000"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:translationY="1200px"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/baseline_lock_24"/>
+
+    <Button
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:translationY="1400px"
+        android:layout_centerHorizontal="true"
+        android:text="Login"
+        android:id="@+id/loginButton"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
