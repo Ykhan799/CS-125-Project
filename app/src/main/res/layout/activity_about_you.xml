@@ -35,7 +35,7 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:translationY="450px"
-        android:padding="20dp"/>
+        android:padding="15dp"/>
 
     <EditText
         android:layout_width="500px"
@@ -46,8 +46,8 @@
         android:background="#25000000"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:translationY="650px"
-        android:padding="20dp"/>
+        android:translationY="625px"
+        android:padding="15dp"/>
 
     <EditText
         android:layout_width="500px"
@@ -58,8 +58,8 @@
         android:background="#25000000"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:translationY="850px"
-        android:padding="20dp"/>
+        android:translationY="800px"
+        android:padding="15dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -68,7 +68,47 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15dp"
-        android:translationY="1100px"/>
+        android:translationY="1000px"/>
+
+    <CheckBox
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/buildingMuscle"
+        android:textColor="@color/black"
+        android:text="Building muscle"
+        android:translationY="1100px"
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/gainingWeight"
+        android:textColor="@color/black"
+        android:text="Gaining weight"
+        android:translationY="1200px"
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/losingWeight"
+        android:textColor="@color/black"
+        android:text="Losing weight"
+        android:translationY="1300px"
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/increaseFlexible"
+        android:textColor="@color/black"
+        android:text="Increasing flexibilty"
+        android:translationY="1400px"
+        android:padding="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
