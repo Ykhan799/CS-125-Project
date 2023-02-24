@@ -25,11 +25,29 @@
         android:textSize="15dp"
         android:translationY="340px"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Level ???"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:translationY="425px"/>
+
+    <ProgressBar
+        android:id="@+id/determinateBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_width="700px"
+        android:layout_height="wrap_content"
+        android:progress="25"
+        android:translationY="500px" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_directions_run_24"
-        android:translationY="750px"
+        android:translationY="800px"
         android:scaleX="5"
         android:scaleY="5"/>
 
