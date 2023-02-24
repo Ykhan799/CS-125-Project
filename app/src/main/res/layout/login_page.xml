@@ -25,7 +25,7 @@
         android:scaleY="5"/>
 
     <EditText
-        android:layout_width="1000px"
+        android:layout_width="900px"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:hint="E-mail"
@@ -38,7 +38,7 @@
         android:drawableLeft="@drawable/baseline_email_24"/>
 
     <EditText
-        android:layout_width="1000px"
+        android:layout_width="900px"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:hint="Password"
