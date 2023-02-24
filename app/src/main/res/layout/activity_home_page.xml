@@ -78,6 +78,15 @@
         android:text="Continue leveling up"
         android:id="@+id/continueButton"/>
 
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/black"
+        android:text="logout"
+        android:translationY="1680px" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

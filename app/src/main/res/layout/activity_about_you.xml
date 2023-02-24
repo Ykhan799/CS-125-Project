@@ -110,6 +110,16 @@
         android:translationY="1400px"
         android:padding="15dp"/>
 
+    <Button
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/black"
+        android:translationY="1600px"
+        android:text="Save"
+        android:id="@+id/saveButton"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
