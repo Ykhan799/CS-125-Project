@@ -19,6 +19,7 @@ class LoginPage : AppCompatActivity() {
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var loginUser: Button
+    private lateinit var noAccount: Button
 
     private lateinit var auth: FirebaseAuth
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -30,6 +31,7 @@ class LoginPage : AppCompatActivity() {
         email = findViewById(R.id.email)
         password = findViewById(R.id.password)
         loginUser = findViewById(R.id.loginButton)
+        noAccount = findViewById(R.id.noAccountButton)
 
         auth = FirebaseAuth.getInstance()
 
@@ -37,6 +39,12 @@ class LoginPage : AppCompatActivity() {
             val getEmail = email.text.toString()
             val getPassword = password.text.toString()
             loginUser(getEmail, getPassword)
+        }
+
+        noAccount.setOnClickListener {
+            val loginToCreateAccount = Intent(this@LoginPage, CreateAccount::class.java)
+            startActivity(loginToCreateAccount)
+            finish()
         }
     }
 
