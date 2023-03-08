@@ -9,12 +9,17 @@ import com.google.firebase.auth.FirebaseAuth
 
 class HomePage : AppCompatActivity() {
     private lateinit var logoutButton: Button
+    private lateinit var editInformationButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
 
         logoutButton = findViewById(R.id.logoutButton)
+        editInformationButton = findViewById(R.id.editInfoButton)
+
+        // Ignore this code: This gets the current user logged in
+        // FirebaseAuth.getInstance().currentUser!!.email.toString()
 
         logoutButton.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -22,6 +27,12 @@ class HomePage : AppCompatActivity() {
 
             val mainToStart = Intent(this@HomePage, CreateAccount::class.java)
             startActivity(mainToStart)
+            finish()
+        }
+
+        editInformationButton.setOnClickListener {
+            val homeToAboutYouPage = Intent(this@HomePage, AboutYou::class.java)
+            startActivity(homeToAboutYouPage)
             finish()
         }
     }
