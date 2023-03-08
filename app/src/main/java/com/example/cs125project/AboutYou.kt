@@ -1,12 +1,19 @@
 package com.example.cs125project
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+
 
 class AboutYou : AppCompatActivity() {
     private lateinit var userHeight: EditText
@@ -17,6 +24,9 @@ class AboutYou : AppCompatActivity() {
     private lateinit var gainWeightBox: CheckBox
     private lateinit var loseWeightBox: CheckBox
     private lateinit var increaseFlexibilityBox: CheckBox
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var userAuth: FirebaseAuth
+    private lateinit var currentUser: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,19 +40,24 @@ class AboutYou : AppCompatActivity() {
         gainWeightBox = findViewById(R.id.gainingWeight)
         loseWeightBox = findViewById(R.id.losingWeight)
         increaseFlexibilityBox = findViewById(R.id.increaseFlexible)
+        databaseReference = FirebaseDatabase.getInstance().reference
+        userAuth = FirebaseAuth.getInstance()
+        currentUser = userAuth.currentUser!!.email.toString().substringBefore("@")
+
+        // TODO: Loads Previous user data
+        if (checkUserExists(currentUser)) {
+            readFromDatabase()
+        }
 
         saveButton.setOnClickListener {
             val getHeight = userHeight.text.toString()
             val getWeight = userWeight.text.toString()
             val getAge = userAge.text.toString()
-            validationChecks(getHeight, getWeight, getAge, buildMuscleBox,
-                gainWeightBox, loseWeightBox, increaseFlexibilityBox)
+            validationChecks(getHeight, getWeight, getAge)
         }
     }
 
-    private fun validationChecks(getHeight: String, getWeight: String, getAge: String,
-                                 buildMuscleBox: CheckBox, gainWeightBox: CheckBox,
-                                 loseWeightBox: CheckBox, increaseFlexibilityBox: CheckBox) {
+    private fun validationChecks(getHeight: String, getWeight: String, getAge: String) {
         // Performs input checks when user enters data
         if (getHeight.isEmpty()) {
             Toast.makeText(this, "Empty height. Must enter a height in inches", Toast.LENGTH_SHORT).show()
@@ -60,12 +75,51 @@ class AboutYou : AppCompatActivity() {
             && !loseWeightBox.isChecked && !increaseFlexibilityBox.isChecked) {
             Toast.makeText(this, "Must select at least one wellness interest", Toast.LENGTH_SHORT).show()
         } else {
-            // TODO: add data to firebase
+            if (checkUserExists(currentUser)) {
+                updateDatabaseValues(getHeight, getWeight, getAge)
+            }
+            else {
+                writeToDatabase(getHeight, getWeight, getAge)
+            }
             Toast.makeText(this, "Information saved successfully!", Toast.LENGTH_SHORT).show()
             val aboutToHomePage = Intent(this@AboutYou, HomePage::class.java)
             startActivity(aboutToHomePage)
             finish()
         }
 
+    }
+
+    // TODO: Update user data
+    private fun updateDatabaseValues(getHeight: String, getWeight: String, getAge: String) {
+        Toast.makeText(this, "DatabaseExists", Toast.LENGTH_SHORT).show()
+    }
+
+    // TODO: Write data to database
+    private fun writeToDatabase(getHeight: String, getWeight: String, getAge: String) {
+        Toast.makeText(this, "Database Does not Exist", Toast.LENGTH_SHORT).show()
+    }
+
+    // TODO: When user exists, show their previous data is loaded in
+    private fun readFromDatabase() {
+
+    }
+
+    private fun checkUserExists(getUser: String): Boolean {
+        var checkUser = false
+        val checkUserReference = databaseReference.child(currentUser)
+
+        // Return true if userExists, false if current user doesn't exist
+        checkUserReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    checkUser = true
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                checkUser = false
+            }
+        })
+        return checkUser
     }
 }
