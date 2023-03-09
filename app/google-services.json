@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "447758361842",
+    "firebase_url": "https://cs-125-level-up-fitness-default-rtdb.firebaseio.com",
+    "project_id": "cs-125-level-up-fitness",
+    "storage_bucket": "cs-125-level-up-fitness.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447758361842:android:e0cc89df46f6893f5ddc6b",
+        "android_client_info": {
+          "package_name": "com.example.cs125project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447758361842-8kqdv5sfsl7invj1en7fv9k5e36sq3aa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBLeCmYKEm0Iy6y7NPOjqF0agHRKpCk70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447758361842-8kqdv5sfsl7invj1en7fv9k5e36sq3aa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
