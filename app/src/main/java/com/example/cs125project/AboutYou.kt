@@ -2,17 +2,14 @@ package com.example.cs125project
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 
 
 class AboutYou : AppCompatActivity() {
@@ -45,9 +42,16 @@ class AboutYou : AppCompatActivity() {
         currentUser = userAuth.currentUser!!.email.toString().substringBefore("@")
 
         // TODO: Loads Previous user data
-        if (checkUserExists(currentUser)) {
-            readFromDatabase()
-        }
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.hasChild(currentUser)) {
+                    readFromDatabase()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
 
         saveButton.setOnClickListener {
             val getHeight = userHeight.text.toString()
@@ -75,12 +79,20 @@ class AboutYou : AppCompatActivity() {
             && !loseWeightBox.isChecked && !increaseFlexibilityBox.isChecked) {
             Toast.makeText(this, "Must select at least one wellness interest", Toast.LENGTH_SHORT).show()
         } else {
-            if (checkUserExists(currentUser)) {
-                updateDatabaseValues(getHeight, getWeight, getAge)
-            }
-            else {
-                writeToDatabase(getHeight, getWeight, getAge)
-            }
+            databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.hasChild(currentUser)) {
+                        Log.d("User Exists", "Check")
+                        updateDatabaseValues(getHeight.toInt(), getWeight.toInt(), getAge.toInt())
+                    }
+                    else {
+                        writeToDatabase(getHeight.toInt(), getWeight.toInt(), getAge.toInt())
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
             Toast.makeText(this, "Information saved successfully!", Toast.LENGTH_SHORT).show()
             val aboutToHomePage = Intent(this@AboutYou, HomePage::class.java)
             startActivity(aboutToHomePage)
@@ -90,36 +102,50 @@ class AboutYou : AppCompatActivity() {
     }
 
     // TODO: Update user data
-    private fun updateDatabaseValues(getHeight: String, getWeight: String, getAge: String) {
+    private fun updateDatabaseValues(getHeight: Int, getWeight: Int, getAge: Int) {
         Toast.makeText(this, "DatabaseExists", Toast.LENGTH_SHORT).show()
     }
 
-    // TODO: Write data to database
-    private fun writeToDatabase(getHeight: String, getWeight: String, getAge: String) {
-        Toast.makeText(this, "Database Does not Exist", Toast.LENGTH_SHORT).show()
+
+    private fun writeToDatabase(getHeight: Int, getWeight: Int, getAge: Int) {
+        // child names
+        val heightChild = "Height"
+        val weightChild = "Weight"
+        val ageChild = "Age"
+        val preferencesChild = "Preferences"
+        val option1Child = "Option 1"
+        val option2Child = "Option 2"
+        val option3Child = "Option 3"
+        val option4Child = "Option 4"
+
+        // get remaining values
+        val buildMuscle = buildMuscleBox.text.toString()
+        val gainWeight = gainWeightBox.text.toString()
+        val loseWeight = loseWeightBox.text.toString()
+        val flexibility = increaseFlexibilityBox.text.toString()
+
+        // add height, weight, and age to database with user being the main key
+        databaseReference.child(currentUser).child(heightChild).setValue(getHeight)
+        databaseReference.child(currentUser).child(weightChild).setValue(getWeight)
+        databaseReference.child(currentUser).child(ageChild).setValue(getAge)
+
+        // add check box values to database only if they are checked
+        if (buildMuscleBox.isChecked) {
+            databaseReference.child(currentUser).child(preferencesChild).child(option1Child).setValue(buildMuscle)
+        }
+        if (gainWeightBox.isChecked) {
+            databaseReference.child(currentUser).child(preferencesChild).child(option2Child).setValue(gainWeight)
+        }
+        if (loseWeightBox.isChecked) {
+            databaseReference.child(currentUser).child(preferencesChild).child(option3Child).setValue(loseWeight)
+        }
+        if (increaseFlexibilityBox.isChecked) {
+            databaseReference.child(currentUser).child(preferencesChild).child(option4Child).setValue(flexibility)
+        }
     }
 
     // TODO: When user exists, show their previous data is loaded in
     private fun readFromDatabase() {
-
-    }
-
-    private fun checkUserExists(getUser: String): Boolean {
-        var checkUser = false
-        val checkUserReference = databaseReference.child(currentUser)
-
-        // Return true if userExists, false if current user doesn't exist
-        checkUserReference.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    checkUser = true
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                checkUser = false
-            }
-        })
-        return checkUser
+        Toast.makeText(this, "Reading from Database", Toast.LENGTH_SHORT).show()
     }
 }
