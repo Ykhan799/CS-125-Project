@@ -101,9 +101,9 @@ class AboutYou : AppCompatActivity() {
 
     }
 
-    // TODO: Update user data
+
     private fun updateDatabaseValues(getHeight: Int, getWeight: Int, getAge: Int) {
-        Toast.makeText(this, "DatabaseExists", Toast.LENGTH_SHORT).show()
+        writeToDatabase(getHeight, getWeight, getAge)
     }
 
 
@@ -129,18 +129,30 @@ class AboutYou : AppCompatActivity() {
         databaseReference.child(currentUser).child(weightChild).setValue(getWeight)
         databaseReference.child(currentUser).child(ageChild).setValue(getAge)
 
-        // add check box values to database only if they are checked
+        // add check box values to database only if they are checked. If not checked, add empty string instead
         if (buildMuscleBox.isChecked) {
             databaseReference.child(currentUser).child(preferencesChild).child(option1Child).setValue(buildMuscle)
+        }
+        else {
+            databaseReference.child(currentUser).child(preferencesChild).child(option1Child).setValue("")
         }
         if (gainWeightBox.isChecked) {
             databaseReference.child(currentUser).child(preferencesChild).child(option2Child).setValue(gainWeight)
         }
+        else {
+            databaseReference.child(currentUser).child(preferencesChild).child(option2Child).setValue("")
+        }
         if (loseWeightBox.isChecked) {
             databaseReference.child(currentUser).child(preferencesChild).child(option3Child).setValue(loseWeight)
         }
+        else {
+            databaseReference.child(currentUser).child(preferencesChild).child(option3Child).setValue("")
+        }
         if (increaseFlexibilityBox.isChecked) {
             databaseReference.child(currentUser).child(preferencesChild).child(option4Child).setValue(flexibility)
+        }
+        else {
+            databaseReference.child(currentUser).child(preferencesChild).child(option4Child).setValue("")
         }
     }
 
