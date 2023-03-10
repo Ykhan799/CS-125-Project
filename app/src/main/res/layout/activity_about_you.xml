@@ -25,6 +25,16 @@
         android:textSize="15dp"
         android:translationY="340px"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:translationY="410px"
+        android:text="Height(in)"
+        />
+
     <EditText
         android:layout_width="500px"
         android:layout_height="wrap_content"
@@ -35,8 +45,18 @@
         android:background="#25000000"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:translationY="450px"
+        android:translationY="475px"
         android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:translationY="635px"
+        android:text="Weight(lbs)"
+        />
 
     <EditText
         android:layout_width="500px"
@@ -48,8 +68,18 @@
         android:background="#25000000"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:translationY="625px"
+        android:translationY="700px"
         android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:translationY="860px"
+        android:text="Age(yrs)"
+        />
 
     <EditText
         android:layout_width="500px"
@@ -61,7 +91,7 @@
         android:background="#25000000"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:translationY="800px"
+        android:translationY="925px"
         android:padding="15dp"/>
 
     <TextView
@@ -71,7 +101,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15dp"
-        android:translationY="1000px"/>
+        android:translationY="1125px"/>
 
     <CheckBox
         android:layout_width="500px"
@@ -80,7 +110,7 @@
         android:id="@+id/buildingMuscle"
         android:textColor="@color/black"
         android:text="Building muscle"
-        android:translationY="1100px"
+        android:translationY="1200px"
         android:padding="15dp"/>
 
     <CheckBox
@@ -90,7 +120,7 @@
         android:id="@+id/gainingWeight"
         android:textColor="@color/black"
         android:text="Gaining weight"
-        android:translationY="1200px"
+        android:translationY="1300px"
         android:padding="15dp"/>
 
     <CheckBox
@@ -100,7 +130,7 @@
         android:id="@+id/losingWeight"
         android:textColor="@color/black"
         android:text="Losing weight"
-        android:translationY="1300px"
+        android:translationY="1400px"
         android:padding="15dp"/>
 
     <CheckBox
@@ -110,7 +140,7 @@
         android:id="@+id/increaseFlexible"
         android:textColor="@color/black"
         android:text="Increasing flexibilty"
-        android:translationY="1400px"
+        android:translationY="1500px"
         android:padding="15dp"/>
 
     <Button
@@ -118,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/black"
-        android:translationY="1600px"
+        android:translationY="1650px"
         android:text="Save"
         android:id="@+id/saveButton"
         />

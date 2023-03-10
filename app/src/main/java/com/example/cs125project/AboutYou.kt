@@ -24,6 +24,17 @@ class AboutYou : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var userAuth: FirebaseAuth
     private lateinit var currentUser: String
+    private val TAG = "AboutYou"
+
+    // Child names
+    private val heightChild = "Height"
+    private val weightChild = "Weight"
+    private val ageChild = "Age"
+    private val preferencesChild = "Preferences"
+    private val option1Child = "Option 1"
+    private val option2Child = "Option 2"
+    private val option3Child = "Option 3"
+    private val option4Child = "Option 4"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +52,7 @@ class AboutYou : AppCompatActivity() {
         userAuth = FirebaseAuth.getInstance()
         currentUser = userAuth.currentUser!!.email.toString().substringBefore("@")
 
-        // TODO: Loads Previous user data
+        // gets user data if user already exists
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.hasChild(currentUser)) {
@@ -50,9 +61,11 @@ class AboutYou : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
+                Log.d(TAG, error.toString())
             }
         })
 
+        // saves new data user enters
         saveButton.setOnClickListener {
             val getHeight = userHeight.text.toString()
             val getWeight = userWeight.text.toString()
@@ -82,7 +95,6 @@ class AboutYou : AppCompatActivity() {
             databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.hasChild(currentUser)) {
-                        Log.d("User Exists", "Check")
                         updateDatabaseValues(getHeight.toInt(), getWeight.toInt(), getAge.toInt())
                     }
                     else {
@@ -91,6 +103,7 @@ class AboutYou : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
+                    Log.d(TAG, error.toString())
                 }
             })
             Toast.makeText(this, "Information saved successfully!", Toast.LENGTH_SHORT).show()
@@ -101,24 +114,13 @@ class AboutYou : AppCompatActivity() {
 
     }
 
-
     private fun updateDatabaseValues(getHeight: Int, getWeight: Int, getAge: Int) {
         writeToDatabase(getHeight, getWeight, getAge)
     }
 
 
     private fun writeToDatabase(getHeight: Int, getWeight: Int, getAge: Int) {
-        // child names
-        val heightChild = "Height"
-        val weightChild = "Weight"
-        val ageChild = "Age"
-        val preferencesChild = "Preferences"
-        val option1Child = "Option 1"
-        val option2Child = "Option 2"
-        val option3Child = "Option 3"
-        val option4Child = "Option 4"
-
-        // get remaining values
+        // get checkbox values
         val buildMuscle = buildMuscleBox.text.toString()
         val gainWeight = gainWeightBox.text.toString()
         val loseWeight = loseWeightBox.text.toString()
@@ -128,36 +130,53 @@ class AboutYou : AppCompatActivity() {
         databaseReference.child(currentUser).child(heightChild).setValue(getHeight)
         databaseReference.child(currentUser).child(weightChild).setValue(getWeight)
         databaseReference.child(currentUser).child(ageChild).setValue(getAge)
+        databaseReference.child(currentUser).child(preferencesChild).child(option1Child).setValue("")
+        databaseReference.child(currentUser).child(preferencesChild).child(option2Child).setValue("")
+        databaseReference.child(currentUser).child(preferencesChild).child(option3Child).setValue("")
+        databaseReference.child(currentUser).child(preferencesChild).child(option4Child).setValue("")
+
 
         // add check box values to database only if they are checked. If not checked, add empty string instead
         if (buildMuscleBox.isChecked) {
             databaseReference.child(currentUser).child(preferencesChild).child(option1Child).setValue(buildMuscle)
         }
-        else {
-            databaseReference.child(currentUser).child(preferencesChild).child(option1Child).setValue("")
-        }
         if (gainWeightBox.isChecked) {
             databaseReference.child(currentUser).child(preferencesChild).child(option2Child).setValue(gainWeight)
-        }
-        else {
-            databaseReference.child(currentUser).child(preferencesChild).child(option2Child).setValue("")
         }
         if (loseWeightBox.isChecked) {
             databaseReference.child(currentUser).child(preferencesChild).child(option3Child).setValue(loseWeight)
         }
-        else {
-            databaseReference.child(currentUser).child(preferencesChild).child(option3Child).setValue("")
-        }
         if (increaseFlexibilityBox.isChecked) {
             databaseReference.child(currentUser).child(preferencesChild).child(option4Child).setValue(flexibility)
         }
-        else {
-            databaseReference.child(currentUser).child(preferencesChild).child(option4Child).setValue("")
-        }
     }
 
-    // TODO: When user exists, show their previous data is loaded in
     private fun readFromDatabase() {
-        Toast.makeText(this, "Reading from Database", Toast.LENGTH_SHORT).show()
+        val userReference = databaseReference.child(currentUser)
+        userReference.get().addOnSuccessListener {
+            if (it.exists()) {
+                val height = it.child(heightChild).value
+                val weight = it.child(weightChild).value
+                val age = it.child(ageChild).value
+                val option1 = it.child(preferencesChild).child(option1Child).value
+                val option2 = it.child(preferencesChild).child(option2Child).value
+                val option3 = it.child(preferencesChild).child(option3Child).value
+                val option4 = it.child(preferencesChild).child(option4Child).value
+
+                // updates all the labels
+                userWeight.setText(weight.toString())
+                userHeight.setText(height.toString())
+                userAge.setText(age.toString())
+                buildMuscleBox.isChecked = option1.toString().isNotEmpty()
+                gainWeightBox.isChecked = option2.toString().isNotEmpty()
+                loseWeightBox.isChecked = option3.toString().isNotEmpty()
+                increaseFlexibilityBox.isChecked = option4.toString().isNotEmpty()
+            }
+            else {
+                Log.d(TAG, "User does not exist")
+            }
+        }.addOnFailureListener {
+            Log.d(TAG, it.toString())
+        }
     }
 }

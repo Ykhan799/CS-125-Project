@@ -18,9 +18,6 @@ class HomePage : AppCompatActivity() {
         logoutButton = findViewById(R.id.logoutButton)
         editInformationButton = findViewById(R.id.editInfoButton)
 
-        // Ignore this code: This gets the current user logged in
-        // FirebaseAuth.getInstance().currentUser!!.email.toString()
-
         logoutButton.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             Toast.makeText(this, "Successfully logged out!", Toast.LENGTH_SHORT).show()
