@@ -54,7 +54,7 @@
     <Button
         android:layout_width="800px"
         android:layout_height="wrap_content"
-        android:translationY="1300px"
+        android:translationY="1325px"
         android:background="#0000"
         android:layout_centerHorizontal="true"
         android:text="Already have an account? Login"

@@ -61,7 +61,7 @@
     <Button
         android:layout_width="800px"
         android:layout_height="wrap_content"
-        android:translationY="1500px"
+        android:translationY="1525px"
         android:background="#0000"
         android:layout_centerHorizontal="true"
         android:text="Don't have an account? Create Account"

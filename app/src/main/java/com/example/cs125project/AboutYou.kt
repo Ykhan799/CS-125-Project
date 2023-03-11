@@ -82,12 +82,24 @@ class AboutYou : AppCompatActivity() {
             Toast.makeText(this, "Empty weight. Must enter a weight in lbs", Toast.LENGTH_SHORT).show()
         } else if (getAge.isEmpty()) {
             Toast.makeText(this, "Empty age. Must enter a age in years", Toast.LENGTH_SHORT).show()
-        } else if (getHeight.toInt() <= 0) {
-            Toast.makeText(this, "Height must be a positive value", Toast.LENGTH_SHORT).show()
-        } else if (getWeight.toInt() <= 0) {
-            Toast.makeText(this, "Weight must be a positive value", Toast.LENGTH_SHORT).show()
-        } else if (getAge.toInt() <= 0) {
-            Toast.makeText(this, "Age must be a positive value", Toast.LENGTH_SHORT).show()
+        } else if (getHeight.toIntOrNull() == null || getHeight.toInt() <= 0) {
+            Toast.makeText(this, "Height must be a positive integer", Toast.LENGTH_SHORT).show()
+        } else if (getWeight.toIntOrNull() == null || getWeight.toInt() <= 0) {
+            Toast.makeText(this, "Weight must be a positive integer", Toast.LENGTH_SHORT).show()
+        } else if (getAge.toIntOrNull() == null || getAge.toInt() <= 0) {
+            Toast.makeText(this, "Age must be a positive integer", Toast.LENGTH_SHORT).show()
+        } else if (getHeight.toInt() > 107) {
+            Toast.makeText(this, "Height is too large. Must be smaller", Toast.LENGTH_SHORT).show()
+        } else if (getHeight.toInt() < 21) {
+            Toast.makeText(this, "Height is too small. Must be larger", Toast.LENGTH_SHORT).show()
+        } else if (getWeight.toInt() > 1400) {
+            Toast.makeText(this, "Weight is too large. Must be smaller", Toast.LENGTH_SHORT).show()
+        } else if (getWeight.toInt() < 5) {
+            Toast.makeText(this, "Height is too small, Must be larger", Toast.LENGTH_SHORT).show()
+        } else if (getAge.toInt() > 122) {
+            Toast.makeText(this, "Age is too large. Must be smaller", Toast.LENGTH_SHORT).show()
+        } else if (getAge.toInt() < 14) {
+            Toast.makeText(this, "Age is too small. Must be larger", Toast.LENGTH_SHORT).show()
         } else if (!buildMuscleBox.isChecked && !gainWeightBox.isChecked
             && !loseWeightBox.isChecked && !increaseFlexibilityBox.isChecked) {
             Toast.makeText(this, "Must select at least one wellness interest", Toast.LENGTH_SHORT).show()

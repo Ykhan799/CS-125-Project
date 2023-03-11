@@ -38,7 +38,13 @@ class LoginPage : AppCompatActivity() {
         loginUser.setOnClickListener {
             val getEmail = email.text.toString()
             val getPassword = password.text.toString()
-            loginUser(getEmail, getPassword)
+            if (getEmail.isEmpty()) {
+                Toast.makeText(this, "Username is empty. Must enter a username", Toast.LENGTH_SHORT).show()
+            } else if (getPassword.isEmpty()) {
+                Toast.makeText(this, "Password is empty. Must enter a password", Toast.LENGTH_SHORT).show()
+            } else {
+                loginUser(getEmail, getPassword)
+            }
         }
 
         noAccount.setOnClickListener {
