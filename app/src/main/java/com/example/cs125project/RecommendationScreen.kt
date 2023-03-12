@@ -20,37 +20,6 @@ class RecommendationScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendations)
 
-        getExerciseData()
     }
 
-    private fun getExerciseData() {
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
-            .build()
-            .create(APIInterface::class.java)
-
-        val retrofitData = retrofitBuilder.getData()
-
-        retrofitData.enqueue(object : Callback<List<ExerciseDataItem>?> {
-            override fun onResponse(
-                call: Call<List<ExerciseDataItem>?>,
-                response: Response<List<ExerciseDataItem>?>
-            ) {
-                val responseBody = response.body()!!
-
-                val myStringBuilder = StringBuilder()
-                for (exerciseData in responseBody) {
-                    myStringBuilder.append(exerciseData.name)
-                    myStringBuilder.append("\n")
-                }
-
-                textView.text = myStringBuilder
-            }
-
-            override fun onFailure(call: Call<List<ExerciseDataItem>?>, t: Throwable) {
-                Log.d(ContentValues.TAG, "onFailure: " + t.message)
-            }
-        })
-    }
 }

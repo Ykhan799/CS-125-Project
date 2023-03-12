@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_home_page.*
 
 class HomePage : AppCompatActivity() {
     private lateinit var logoutButton: Button
@@ -30,6 +31,12 @@ class HomePage : AppCompatActivity() {
         editInformationButton.setOnClickListener {
             val homeToAboutYouPage = Intent(this@HomePage, AboutYou::class.java)
             startActivity(homeToAboutYouPage)
+            finish()
+        }
+
+        continueButton.setOnClickListener {
+            val homeToRecommendationScreen = Intent(this@HomePage, RecommendationScreen::class.java)
+            startActivity(homeToRecommendationScreen)
             finish()
         }
     }
