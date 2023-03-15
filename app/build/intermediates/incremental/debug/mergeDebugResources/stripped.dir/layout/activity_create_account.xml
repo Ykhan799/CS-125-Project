@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateAccount">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:translationY="550px"/>
+
+    <EditText
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="E-mail"
+        android:id="@+id/email"
+        android:background="#25000000"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:translationY="750px"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/baseline_email_24"/>
+
+    <EditText
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Password"
+        android:id="@+id/password"
+        android:background="#25000000"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:translationY="950px"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/baseline_lock_24"/>
+
+    <Button
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:translationY="1200px"
+        android:backgroundTint="@color/black"
+        android:layout_centerHorizontal="true"
+        android:text="Create Account"
+        android:id="@+id/createAccountButton"/>
+
+    <Button
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:translationY="1325px"
+        android:background="#0000"
+        android:layout_centerHorizontal="true"
+        android:text="Already have an account? Login"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        android:id="@+id/alreadyCreatedButton"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

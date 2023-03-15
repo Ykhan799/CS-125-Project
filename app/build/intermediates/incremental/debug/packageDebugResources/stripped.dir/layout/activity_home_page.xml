@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePage">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hi, Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:translationY="200px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Check on your progress today"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:translationY="340px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Level ???"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:translationY="425px"/>
+
+    <ProgressBar
+        android:id="@+id/determinateBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_width="700px"
+        android:layout_height="wrap_content"
+        android:progress="25"
+        android:translationY="500px" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_directions_run_24"
+        android:translationY="800px"
+        android:scaleX="5"
+        android:scaleY="5"/>
+
+    <Button
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:translationY="1130px"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/black"
+        android:text="Edit your information"
+        android:id="@+id/editInfoButton"/>
+
+    <Button
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:translationY="1240px"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/black"
+        android:text="Customize your avatar"
+        android:id="@+id/customizeButton"/>
+
+    <Button
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:translationY="1350px"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#808080"
+        android:text="Continue leveling up"
+        android:id="@+id/continueButton"/>
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/black"
+        android:text="logout"
+        android:translationY="1525px" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

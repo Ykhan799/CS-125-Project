@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutYou">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About You"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:translationY="200px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Let's learn more about you"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:translationY="340px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:translationY="410px"
+        android:text="Height(in)"
+        />
+
+    <EditText
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Height (in)"
+        android:id="@+id/height"
+        android:inputType="number|numberDecimal"
+        android:background="#25000000"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:translationY="475px"
+        android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:translationY="635px"
+        android:text="Weight(lbs)"
+        />
+
+    <EditText
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Weight (lbs)"
+        android:id="@+id/weight"
+        android:inputType="number|numberDecimal"
+        android:background="#25000000"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:translationY="700px"
+        android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:translationY="860px"
+        android:text="Age(yrs)"
+        />
+
+    <EditText
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Age (yrs)"
+        android:id="@+id/age"
+        android:inputType="number|numberDecimal"
+        android:background="#25000000"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:translationY="925px"
+        android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select your wellness interests"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:translationY="1125px"/>
+
+    <CheckBox
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/buildingMuscle"
+        android:textColor="@color/black"
+        android:text="Building muscle"
+        android:translationY="1200px"
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/gainingWeight"
+        android:textColor="@color/black"
+        android:text="Gaining weight"
+        android:translationY="1300px"
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/losingWeight"
+        android:textColor="@color/black"
+        android:text="Losing weight"
+        android:translationY="1400px"
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/increaseFlexible"
+        android:textColor="@color/black"
+        android:text="Increasing flexibilty"
+        android:translationY="1500px"
+        android:padding="15dp"/>
+
+    <Button
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/black"
+        android:translationY="1650px"
+        android:text="Save"
+        android:id="@+id/saveButton"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
