@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.example.cs125project.Level
 
 
 class AboutYou : AppCompatActivity() {
@@ -25,6 +26,7 @@ class AboutYou : AppCompatActivity() {
     private lateinit var userAuth: FirebaseAuth
     private lateinit var currentUser: String
     private val TAG = "AboutYou"
+    private lateinit var userLevel: Level
 
     // Child names
     private val heightChild = "Height"
@@ -35,6 +37,7 @@ class AboutYou : AppCompatActivity() {
     private val option2Child = "Option 2"
     private val option3Child = "Option 3"
     private val option4Child = "Option 4"
+    private val levelChild = "Level"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +54,7 @@ class AboutYou : AppCompatActivity() {
         databaseReference = FirebaseDatabase.getInstance().reference
         userAuth = FirebaseAuth.getInstance()
         currentUser = userAuth.currentUser!!.email.toString().substringBefore("@")
+        userLevel = Level()
 
         // gets user data if user already exists
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -146,6 +150,7 @@ class AboutYou : AppCompatActivity() {
         databaseReference.child(currentUser).child(preferencesChild).child(option2Child).setValue("")
         databaseReference.child(currentUser).child(preferencesChild).child(option3Child).setValue("")
         databaseReference.child(currentUser).child(preferencesChild).child(option4Child).setValue("")
+        databaseReference.child(currentUser).child(levelChild).setValue(userLevel)
 
 
         // add check box values to database only if they are checked. If not checked, add empty string instead
