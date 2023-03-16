@@ -28,16 +28,6 @@ class AboutYou : AppCompatActivity() {
     private val TAG = "AboutYou"
     private lateinit var userLevel: Level
 
-    // Child names
-    private val heightChild = "Height"
-    private val weightChild = "Weight"
-    private val ageChild = "Age"
-    private val preferencesChild = "Preferences"
-    private val option1Child = "Option 1"
-    private val option2Child = "Option 2"
-    private val option3Child = "Option 3"
-    private val option4Child = "Option 4"
-    private val levelChild = "Level"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -143,28 +133,28 @@ class AboutYou : AppCompatActivity() {
         val flexibility = increaseFlexibilityBox.text.toString()
 
         // add height, weight, and age to database with user being the main key
-        databaseReference.child(currentUser).child(heightChild).setValue(getHeight)
-        databaseReference.child(currentUser).child(weightChild).setValue(getWeight)
-        databaseReference.child(currentUser).child(ageChild).setValue(getAge)
-        databaseReference.child(currentUser).child(preferencesChild).child(option1Child).setValue("")
-        databaseReference.child(currentUser).child(preferencesChild).child(option2Child).setValue("")
-        databaseReference.child(currentUser).child(preferencesChild).child(option3Child).setValue("")
-        databaseReference.child(currentUser).child(preferencesChild).child(option4Child).setValue("")
-        databaseReference.child(currentUser).child(levelChild).setValue(userLevel)
+        databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.heightChild).setValue(getHeight)
+        databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.weightChild).setValue(getWeight)
+        databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.ageChild).setValue(getAge)
+        databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option1Child).setValue("")
+        databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option2Child).setValue("")
+        databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option3Child).setValue("")
+        databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option4Child).setValue("")
+        databaseReference.child(currentUser).child(Constants.levelChild).setValue(userLevel)
 
 
         // add check box values to database only if they are checked. If not checked, add empty string instead
         if (buildMuscleBox.isChecked) {
-            databaseReference.child(currentUser).child(preferencesChild).child(option1Child).setValue(buildMuscle)
+            databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option1Child).setValue(buildMuscle)
         }
         if (gainWeightBox.isChecked) {
-            databaseReference.child(currentUser).child(preferencesChild).child(option2Child).setValue(gainWeight)
+            databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option2Child).setValue(gainWeight)
         }
         if (loseWeightBox.isChecked) {
-            databaseReference.child(currentUser).child(preferencesChild).child(option3Child).setValue(loseWeight)
+            databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option3Child).setValue(loseWeight)
         }
         if (increaseFlexibilityBox.isChecked) {
-            databaseReference.child(currentUser).child(preferencesChild).child(option4Child).setValue(flexibility)
+            databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option4Child).setValue(flexibility)
         }
     }
 
@@ -172,13 +162,21 @@ class AboutYou : AppCompatActivity() {
         val userReference = databaseReference.child(currentUser)
         userReference.get().addOnSuccessListener {
             if (it.exists()) {
-                val height = it.child(heightChild).value
-                val weight = it.child(weightChild).value
-                val age = it.child(ageChild).value
-                val option1 = it.child(preferencesChild).child(option1Child).value
-                val option2 = it.child(preferencesChild).child(option2Child).value
-                val option3 = it.child(preferencesChild).child(option3Child).value
-                val option4 = it.child(preferencesChild).child(option4Child).value
+                val height = it.child(Constants.surveyChild).child(Constants.heightChild).value
+                val weight = it.child(Constants.surveyChild).child(Constants.weightChild).value
+                val age = it.child(Constants.surveyChild).child(Constants.ageChild).value
+                val option1 = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option1Child).value
+                val option2 = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option2Child).value
+                val option3 = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option3Child).value
+                val option4 = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option4Child).value
+                val level = it.child(Constants.levelChild).value
+
+                // prevents level from being reset when user already exists
+                if (level is Level) {userLevel = level}
+
+                Log.d(TAG, userLevel.currentLevel.toString())
+                Log.d(TAG, userLevel.currentExperience.toString())
+                Log.d(TAG, userLevel.nextExperience.toString())
 
                 // updates all the labels
                 userWeight.setText(weight.toString())

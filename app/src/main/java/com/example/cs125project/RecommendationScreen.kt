@@ -37,17 +37,6 @@ class RecommendationScreen : AppCompatActivity() {
     private lateinit var userLevel: Level
 
 
-    // Child names
-    private val heightChild = "Height"
-    private val weightChild = "Weight"
-    private val ageChild = "Age"
-    private val preferencesChild = "Preferences"
-    private val option1Child = "Option 1"
-    private val option2Child = "Option 2"
-    private val option3Child = "Option 3"
-    private val option4Child = "Option 4"
-    private val levelChild = "Level"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendations)
@@ -60,14 +49,14 @@ class RecommendationScreen : AppCompatActivity() {
         val userReference = databaseReference.child(currentUser)
         userReference.get().addOnSuccessListener {
             if(it.exists()){
-                val uHeight = it.child(heightChild).value
-                val uWeight = it.child(weightChild).value
-                val uAge = it.child(ageChild).value
-                val bMuscle = it.child(preferencesChild).child(option1Child).value //Priority 1
-                val gWeight = it.child(preferencesChild).child(option2Child).value //Priority 4
-                val lWeight = it.child(preferencesChild).child(option3Child).value //Priority 3
-                val iFlexibility = it.child(preferencesChild).child(option4Child).value //Priority 2
-                val uLevel = it.child(levelChild).value
+                val uHeight = it.child(Constants.surveyChild).child(Constants.heightChild).value
+                val uWeight = it.child(Constants.surveyChild).child(Constants.weightChild).value
+                val uAge = it.child(Constants.surveyChild).child(Constants.ageChild).value
+                val bMuscle = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option1Child).value //Priority 1
+                val gWeight = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option2Child).value //Priority 4
+                val lWeight = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option3Child).value //Priority 3
+                val iFlexibility = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option4Child).value //Priority 2
+                val uLevel = it.child(Constants.levelChild).value
 
                 userHeight = uHeight.toString()
                 userWeight = uWeight.toString()
