@@ -2,7 +2,7 @@ package com.example.cs125project
 
 class Level {
 
-    var currentLevel = 0;
+    var currentLevel = 1;
     var currentExperience = 0;
     var nextExperience = 100.00;
 

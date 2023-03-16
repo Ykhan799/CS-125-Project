@@ -12,6 +12,7 @@ import androidx.navigation.ui.NavigationUI
 import com.example.cs125project.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
+import kotlinx.android.synthetic.main.activity_about_you.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,6 +26,15 @@ class RecommendationScreen : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var currentUser: String
     private lateinit var userAuth: FirebaseAuth
+
+    private lateinit var userHeight: String
+    private lateinit var userWeight: String
+    private lateinit var userAge: String
+    private var buildMuscle: Boolean = false
+    private var gainWeight: Boolean = false
+    private var loseWeight: Boolean = false
+    private var improveFlexibility: Boolean = false
+    private lateinit var userLevel: Level
 
 
     // Child names
@@ -47,18 +57,26 @@ class RecommendationScreen : AppCompatActivity() {
 
 
         //Get user Context
-        //TODO: Add Level to User Context
         val userReference = databaseReference.child(currentUser)
         userReference.get().addOnSuccessListener {
             if(it.exists()){
-                val userHeight = it.child(heightChild).value
-                val userWeight = it.child(weightChild).value
-                val userAge = it.child(ageChild).value
-                val buildMuscle = it.child(preferencesChild).child(option1Child).value
-                val gainWeight = it.child(preferencesChild).child(option2Child).value
-                val loseWeight = it.child(preferencesChild).child(option3Child).value
-                val improveFlexibility = it.child(preferencesChild).child(option4Child).value
-                var userLevel = it.child(levelChild).value
+                val uHeight = it.child(heightChild).value
+                val uWeight = it.child(weightChild).value
+                val uAge = it.child(ageChild).value
+                val bMuscle = it.child(preferencesChild).child(option1Child).value //Priority 1
+                val gWeight = it.child(preferencesChild).child(option2Child).value //Priority 4
+                val lWeight = it.child(preferencesChild).child(option3Child).value //Priority 3
+                val iFlexibility = it.child(preferencesChild).child(option4Child).value //Priority 2
+                val uLevel = it.child(levelChild).value
+
+                userHeight = uHeight.toString()
+                userWeight = uWeight.toString()
+                userAge = uAge.toString()
+                buildMuscle = bMuscle.toString().isNotEmpty()
+                gainWeight = gWeight.toString().isNotEmpty()
+                loseWeight = lWeight.toString().isNotEmpty()
+                improveFlexibility = iFlexibility.toString().isNotEmpty()
+                if(uLevel is Level){userLevel = uLevel}
             }else{
                 Log.d("Context","User does not exist")
             }
@@ -69,6 +87,7 @@ class RecommendationScreen : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+
         viewModel.getPost()
         viewModel.myReponse.observe(this, Observer { response ->
             if(response.isSuccessful){
@@ -80,6 +99,147 @@ class RecommendationScreen : AppCompatActivity() {
                 Log.d("Response", response.code().toString())
             }
         })
+
+        if(buildMuscle)
+        {
+            //Do Something
+            viewModel.getCustomPosts("strength")
+            viewModel.myReponse.observe(this, Observer{ response ->
+                if(response.isSuccessful){
+                    response.body()?.forEach{
+                        if(userLevel.currentLevel <= 5)
+                        {
+                            //Beginner
+                            if(it.difficulty == "beginner")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                        else if(userLevel.currentLevel > 5 && userLevel.currentLevel <= 15)
+                        {
+                            //Intermediate
+                            if(it.difficulty == "intermediate")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                        else
+                        {
+                            //Advanced
+                            if(it.difficulty == "expert")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                    }
+                }
+            })
+        }
+        else if(improveFlexibility)
+        {
+            //Do Something
+            viewModel.getCustomPosts("plyometrics")
+            viewModel.myReponse.observe(this, Observer{ response ->
+                if(response.isSuccessful){
+                    response.body()?.forEach{
+                        if(userLevel.currentLevel <= 5)
+                        {
+                            //Beginner
+                            if(it.difficulty == "beginner")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                        else if(userLevel.currentLevel > 5 && userLevel.currentLevel <= 15)
+                        {
+                            //Intermediate
+                            if(it.difficulty == "intermediate")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                        else
+                        {
+                            //Advanced
+                            if(it.difficulty == "expert")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                    }
+                }
+            })
+        }
+        else if(loseWeight)
+        {
+            //Do Something
+            viewModel.getCustomPosts("cardio")
+            viewModel.myReponse.observe(this, Observer{ response ->
+                if(response.isSuccessful){
+                    response.body()?.forEach{
+                        if(userLevel.currentLevel <= 5)
+                        {
+                            //Beginner
+                            if(it.difficulty == "beginner")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                        else if(userLevel.currentLevel > 5 && userLevel.currentLevel <= 15)
+                        {
+                            //Intermediate
+                            if(it.difficulty == "intermediate")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                        else
+                        {
+                            //Advanced
+                            if(it.difficulty == "expert")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                    }
+                }
+            })
+        }
+        else if(gainWeight)
+        {
+            //Do Something
+            viewModel.getCustomPosts("powerlifting")
+            viewModel.myReponse.observe(this, Observer{ response ->
+                if(response.isSuccessful){
+                    response.body()?.forEach{
+                        if(userLevel.currentLevel <= 5)
+                        {
+                            //Beginner
+                            if(it.difficulty == "beginner")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                        else if(userLevel.currentLevel > 5 && userLevel.currentLevel <= 15)
+                        {
+                            //Intermediate
+                            if(it.difficulty == "intermediate")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                        else
+                        {
+                            //Advanced
+                            if(it.difficulty == "expert")
+                            {
+                                //Add to Recommendation Screen
+                            }
+                        }
+                    }
+                }
+            })
+        }
 
     }
 
