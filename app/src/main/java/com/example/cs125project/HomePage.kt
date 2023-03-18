@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -22,6 +23,7 @@ class HomePage : AppCompatActivity() {
     private lateinit var continueButton: Button
     private lateinit var levelText: TextView
     private lateinit var greetingText: TextView
+    private lateinit var avatar: ImageView
     private lateinit var determinateBar: ProgressBar
     private lateinit var currentUser: String
     private lateinit var userLevel: Level
@@ -37,6 +39,7 @@ class HomePage : AppCompatActivity() {
         levelText = findViewById(R.id.levelText)
         greetingText = findViewById(R.id.greetingText)
         determinateBar = findViewById(R.id.determinateBar)
+        avatar = findViewById(R.id.avatar)
         userLevel = Level()
 
         databaseReference = FirebaseDatabase.getInstance().reference
@@ -86,5 +89,12 @@ class HomePage : AppCompatActivity() {
 
         // Update progress bar based on xp
         determinateBar.progress = userLevel.currentExperience
+
+        // Update avatar sprite based on level
+        if (userLevel.currentLevel > 5 || userLevel.currentLevel <= 10) {
+            avatar.setImageResource(R.drawable.sprite_s2)
+        } else if (userLevel.currentLevel > 10) {
+            avatar.setImageResource(R.drawable.sprite_s3)
+        }
     }
 }
