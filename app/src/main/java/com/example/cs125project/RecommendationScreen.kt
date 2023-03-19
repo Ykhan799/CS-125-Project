@@ -1,15 +1,10 @@
 package com.example.cs125project
 
-import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.activity_recommendations.*
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
-import com.example.cs125project.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import kotlinx.android.synthetic.main.activity_about_you.*
@@ -36,7 +31,17 @@ class RecommendationScreen : AppCompatActivity() {
     private var improveFlexibility: Boolean = false
     private lateinit var userLevel: Level
 
+    private var offset: Int = 0
 
+    fun randomOffset(number: Int): Int {
+        var num = 0
+        do {
+            num = (0..1000).random()
+        } while(num <= number + 10 || num >= number - 10)
+
+        return num
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendations)
@@ -92,7 +97,8 @@ class RecommendationScreen : AppCompatActivity() {
         if(buildMuscle)
         {
             //Do Something
-            viewModel.getCustomPosts("strength")
+            viewModel.getCustomPosts("strength", offset)
+            offset = randomOffset(offset)
             viewModel.myReponse.observe(this, Observer{ response ->
                 if(response.isSuccessful){
                     response.body()?.forEach{
@@ -127,7 +133,8 @@ class RecommendationScreen : AppCompatActivity() {
         else if(improveFlexibility)
         {
             //Do Something
-            viewModel.getCustomPosts("plyometrics")
+            viewModel.getCustomPosts("plyometrics", offset)
+            offset = randomOffset(offset)
             viewModel.myReponse.observe(this, Observer{ response ->
                 if(response.isSuccessful){
                     response.body()?.forEach{
@@ -162,7 +169,8 @@ class RecommendationScreen : AppCompatActivity() {
         else if(loseWeight)
         {
             //Do Something
-            viewModel.getCustomPosts("cardio")
+            viewModel.getCustomPosts("cardio", offset)
+            offset = randomOffset(offset)
             viewModel.myReponse.observe(this, Observer{ response ->
                 if(response.isSuccessful){
                     response.body()?.forEach{
@@ -197,7 +205,8 @@ class RecommendationScreen : AppCompatActivity() {
         else if(gainWeight)
         {
             //Do Something
-            viewModel.getCustomPosts("powerlifting")
+            viewModel.getCustomPosts("powerlifting", offset)
+            offset = randomOffset(offset)
             viewModel.myReponse.observe(this, Observer{ response ->
                 if(response.isSuccessful){
                     response.body()?.forEach{

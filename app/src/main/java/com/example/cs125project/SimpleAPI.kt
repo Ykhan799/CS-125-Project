@@ -17,7 +17,8 @@ interface SimpleAPI {
 
     @GET("v1/exercises")
     suspend fun getCustomPosts(
-        @Query("type") exerciseType: String
+        @Query("type") exerciseType: String,
+        @Query("offset") offset: Int
     ): Response<ExerciseData>
 
 }
