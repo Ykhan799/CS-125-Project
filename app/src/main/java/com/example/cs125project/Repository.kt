@@ -13,6 +13,6 @@ class Repository {
     }
 
     suspend fun getCustomPosts(exerciseType: String, offset: Int): Response<ExerciseData> {
-        return RetrofitInstance.api.getCustomPosts(exerciseType)
+        return RetrofitInstance.api.getCustomPosts(exerciseType, offset)
     }
 }

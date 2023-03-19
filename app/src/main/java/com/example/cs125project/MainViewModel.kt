@@ -28,7 +28,7 @@ class MainViewModel(private val repository: Repository ): ViewModel() {
 
     fun getCustomPosts(exerciseType: String, offset: Int) {
         viewModelScope.launch {
-            val response = repository.getCustomPosts(exerciseType)
+            val response = repository.getCustomPosts(exerciseType, offset)
             myCustomPosts.value = response
 
         }
