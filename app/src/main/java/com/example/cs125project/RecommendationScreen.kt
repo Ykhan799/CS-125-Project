@@ -32,6 +32,7 @@ class RecommendationScreen : AppCompatActivity() {
     private lateinit var userLevel: Level
 
     private var offset: Int = 0
+    private var atGym: Boolean = false
 
     fun randomOffset(number: Int): Int {
         var num = 0
@@ -93,150 +94,245 @@ class RecommendationScreen : AppCompatActivity() {
                 Log.d("Response", response.code().toString())
             }
         })
-
-        if(buildMuscle)
-        {
-            //Do Something
-            viewModel.getCustomPosts("strength", offset)
-            offset = randomOffset(offset)
-            viewModel.myReponse.observe(this, Observer{ response ->
-                if(response.isSuccessful){
-                    response.body()?.forEach{
-                        if(userLevel.currentLevel <= 5)
-                        {
-                            //Beginner
-                            if(it.difficulty == "beginner")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                        else if(userLevel.currentLevel > 5 && userLevel.currentLevel <= 15)
-                        {
-                            //Intermediate
-                            if(it.difficulty == "intermediate")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                        else
-                        {
-                            //Advanced
-                            if(it.difficulty == "expert")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                    }
-                }
-            })
-        }
-        else if(improveFlexibility)
-        {
-            //Do Something
-            viewModel.getCustomPosts("plyometrics", offset)
-            offset = randomOffset(offset)
-            viewModel.myReponse.observe(this, Observer{ response ->
-                if(response.isSuccessful){
-                    response.body()?.forEach{
-                        if(userLevel.currentLevel <= 5)
-                        {
-                            //Beginner
-                            if(it.difficulty == "beginner")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                        else if(userLevel.currentLevel > 5 && userLevel.currentLevel <= 15)
-                        {
-                            //Intermediate
-                            if(it.difficulty == "intermediate")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                        else
-                        {
-                            //Advanced
-                            if(it.difficulty == "expert")
-                            {
-                                //Add to Recommendation Screen
+        var workouts = mutableMapOf("key" to "value")
+        while(workouts.count() < 3) {
+            if (buildMuscle) {
+                //Do Something
+                viewModel.getCustomPosts("strength", offset)
+                offset = randomOffset(offset)
+                viewModel.myReponse.observe(this, Observer { response ->
+                    if (response.isSuccessful) {
+                        response.body()?.forEach {
+                            if (userLevel.currentLevel <= 5) {
+                                //Beginner
+                                if (it.difficulty == "beginner") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            } else if (userLevel.currentLevel in 6..15) {
+                                //Intermediate
+                                if (it.difficulty == "intermediate") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            } else {
+                                //Advanced
+                                if (it.difficulty == "expert") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
                             }
                         }
                     }
-                }
-            })
-        }
-        else if(loseWeight)
-        {
-            //Do Something
-            viewModel.getCustomPosts("cardio", offset)
-            offset = randomOffset(offset)
-            viewModel.myReponse.observe(this, Observer{ response ->
-                if(response.isSuccessful){
-                    response.body()?.forEach{
-                        if(userLevel.currentLevel <= 5)
-                        {
-                            //Beginner
-                            if(it.difficulty == "beginner")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                        else if(userLevel.currentLevel > 5 && userLevel.currentLevel <= 15)
-                        {
-                            //Intermediate
-                            if(it.difficulty == "intermediate")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                        else
-                        {
-                            //Advanced
-                            if(it.difficulty == "expert")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                    }
-                }
-            })
-        }
-        else if(gainWeight)
-        {
-            //Do Something
-            viewModel.getCustomPosts("powerlifting", offset)
-            offset = randomOffset(offset)
-            viewModel.myReponse.observe(this, Observer{ response ->
-                if(response.isSuccessful){
-                    response.body()?.forEach{
-                        if(userLevel.currentLevel <= 5)
-                        {
-                            //Beginner
-                            if(it.difficulty == "beginner")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                        else if(userLevel.currentLevel > 5 && userLevel.currentLevel <= 15)
-                        {
-                            //Intermediate
-                            if(it.difficulty == "intermediate")
-                            {
-                                //Add to Recommendation Screen
-                            }
-                        }
-                        else
-                        {
-                            //Advanced
-                            if(it.difficulty == "expert")
-                            {
-                                //Add to Recommendation Screen
+                })
+            } else if (improveFlexibility) {
+                //Do Something
+                viewModel.getCustomPosts("plyometrics", offset)
+                offset = randomOffset(offset)
+                viewModel.myReponse.observe(this, Observer { response ->
+                    if (response.isSuccessful) {
+                        response.body()?.forEach {
+                            if (userLevel.currentLevel <= 5) {
+                                //Beginner
+                                if (it.difficulty == "beginner") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            } else if (userLevel.currentLevel in 6..15) {
+                                //Intermediate
+                                if (it.difficulty == "intermediate") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            } else {
+                                //Advanced
+                                if (it.difficulty == "expert") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
                             }
                         }
                     }
-                }
-            })
+                })
+            } else if (loseWeight) {
+                //Do Something
+                viewModel.getCustomPosts("cardio", offset)
+                offset = randomOffset(offset)
+                viewModel.myReponse.observe(this, Observer { response ->
+                    if (response.isSuccessful) {
+                        response.body()?.forEach {
+                            if (userLevel.currentLevel <= 5) {
+                                //Beginner
+                                if (it.difficulty == "beginner") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            } else if (userLevel.currentLevel in 6..15) {
+                                //Intermediate
+                                if (it.difficulty == "intermediate") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            } else {
+                                //Advanced
+                                if (it.difficulty == "expert") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            }
+                        }
+                    }
+                })
+            } else if (gainWeight) {
+                //Do Something
+                viewModel.getCustomPosts("powerlifting", offset)
+                offset = randomOffset(offset)
+                viewModel.myReponse.observe(this, Observer { response ->
+                    if (response.isSuccessful) {
+                        response.body()?.forEach {
+                            if (userLevel.currentLevel <= 5) {
+                                //Beginner
+                                if (it.difficulty == "beginner") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            } else if (userLevel.currentLevel in 6..15) {
+                                //Intermediate
+                                if (it.difficulty == "intermediate") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            } else {
+                                //Advanced
+                                if (it.difficulty == "expert") {
+                                    //Add to Recommendation Screen
+                                    if(!atGym)
+                                    {
+                                        if(it.equipment == "None")
+                                        {
+                                            workouts[it.name] = it.instructions
+                                        }
+                                    }
+                                    else
+                                    {
+                                        workouts[it.name] = it.instructions
+                                    }
+                                }
+                            }
+                        }
+                    }
+                })
+            }
         }
 
     }
