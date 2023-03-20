@@ -109,7 +109,13 @@ class RecommendationScreen : AppCompatActivity() {
                 val gWeight = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option2Child).value //Priority 4
                 val lWeight = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option3Child).value //Priority 3
                 val iFlexibility = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option4Child).value //Priority 2
-                val uLevel = it.child(Constants.levelChild).value
+                val uCurrentLevel = it.child(Constants.levelChild).child(Constants.currentLevelChild).value
+                val uCurrentExperience = it.child(Constants.levelChild).child(Constants.currentExperienceChild).value
+                val uNextExperience = it.child(Constants.levelChild).child(Constants.nextExperienceChild).value
+
+                userLevel.currentLevel = uCurrentLevel.toString().toInt()
+                userLevel.currentExperience = uCurrentExperience.toString().toInt()
+                userLevel.nextExperience = uNextExperience.toString().toDouble()
 
                 userHeight = uHeight.toString()
                 userWeight = uWeight.toString()
@@ -118,7 +124,6 @@ class RecommendationScreen : AppCompatActivity() {
                 gainWeight = gWeight.toString().isNotEmpty()
                 loseWeight = lWeight.toString().isNotEmpty()
                 improveFlexibility = iFlexibility.toString().isNotEmpty()
-                if(uLevel is Level){userLevel = uLevel}
             }else{
                 Log.d("Context","User does not exist")
             }
@@ -130,7 +135,7 @@ class RecommendationScreen : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         var workouts = mutableMapOf("key" to "value")
         workouts.remove("key")
-        buildMuscle = true
+//        buildMuscle = true
         userLevel = Level()
         Log.d("Reponse", workouts.count().toString())
         if (buildMuscle) {
@@ -466,6 +471,7 @@ class RecommendationScreen : AppCompatActivity() {
 
         workout1Complete.setOnClickListener{
             userLevel.gainExp(20)
+            databaseReference.child(currentUser).child(Constants.levelChild).setValue(userLevel)
             val recommendationToHomePage = android.content.Intent(
                 this@RecommendationScreen,
                 com.example.cs125project.HomePage::class.java
@@ -476,6 +482,7 @@ class RecommendationScreen : AppCompatActivity() {
 
         workout2Complete.setOnClickListener{
             userLevel.gainExp(20)
+            databaseReference.child(currentUser).child(Constants.levelChild).setValue(userLevel)
             val recommendationToHomePage = android.content.Intent(
                 this@RecommendationScreen,
                 com.example.cs125project.HomePage::class.java
