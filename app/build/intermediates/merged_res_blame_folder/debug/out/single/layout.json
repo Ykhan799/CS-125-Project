@@ -1,26 +1,30 @@
 [
     {
-        "merged": "com.example.cs125project.app-mergeDebugResources-49:/layout/activity_create_account.xml",
-        "source": "com.example.cs125project.app-main-52:/layout/activity_create_account.xml"
-    },
-    {
         "merged": "com.example.cs125project.app-mergeDebugResources-49:/layout/activity_recommendations.xml",
         "source": "com.example.cs125project.app-main-52:/layout/activity_recommendations.xml"
     },
     {
-        "merged": "com.example.cs125project.app-mergeDebugResources-49:/layout/activity_home_page.xml",
-        "source": "com.example.cs125project.app-main-52:/layout/activity_home_page.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-mergeDebugResources-49:\\layout\\activity_about_you.xml",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_about_you.xml"
     },
     {
-        "merged": "com.example.cs125project.app-mergeDebugResources-49:/layout/activity_about_you.xml",
-        "source": "com.example.cs125project.app-main-52:/layout/activity_about_you.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-mergeDebugResources-49:\\layout\\activity_recommendations.xml",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_recommendations.xml"
     },
     {
-        "merged": "com.example.cs125project.app-mergeDebugResources-49:/layout/login_page.xml",
-        "source": "com.example.cs125project.app-main-52:/layout/login_page.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-mergeDebugResources-49:\\layout\\activity_home_page.xml",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_home_page.xml"
     },
     {
-        "merged": "com.example.cs125project.app-mergeDebugResources-49:/layout/activity_main.xml",
-        "source": "com.example.cs125project.app-main-52:/layout/activity_main.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-mergeDebugResources-49:\\layout\\login_page.xml",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\login_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-mergeDebugResources-49:\\layout\\activity_create_account.xml",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_create_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-mergeDebugResources-49:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_main.xml"
     }
 ]

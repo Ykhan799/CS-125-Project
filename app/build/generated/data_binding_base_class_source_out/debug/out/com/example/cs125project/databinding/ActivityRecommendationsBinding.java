@@ -4,10 +4,11 @@ package com.example.cs125project.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.cs125project.R;
@@ -17,20 +18,47 @@ import java.lang.String;
 
 public final class ActivityRecommendationsBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final RelativeLayout rootView;
 
   @NonNull
-  public final TextView textView;
+  public final Button recommendButton;
 
-  private ActivityRecommendationsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView textView) {
+  @NonNull
+  public final TextView workoutOne;
+
+  @NonNull
+  public final Button workoutOneButton;
+
+  @NonNull
+  public final TextView workoutOneName;
+
+  @NonNull
+  public final TextView workoutTwo;
+
+  @NonNull
+  public final Button workoutTwoButton;
+
+  @NonNull
+  public final TextView workoutTwoName;
+
+  private ActivityRecommendationsBinding(@NonNull RelativeLayout rootView,
+      @NonNull Button recommendButton, @NonNull TextView workoutOne,
+      @NonNull Button workoutOneButton, @NonNull TextView workoutOneName,
+      @NonNull TextView workoutTwo, @NonNull Button workoutTwoButton,
+      @NonNull TextView workoutTwoName) {
     this.rootView = rootView;
-    this.textView = textView;
+    this.recommendButton = recommendButton;
+    this.workoutOne = workoutOne;
+    this.workoutOneButton = workoutOneButton;
+    this.workoutOneName = workoutOneName;
+    this.workoutTwo = workoutTwo;
+    this.workoutTwoButton = workoutTwoButton;
+    this.workoutTwoName = workoutTwoName;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public RelativeLayout getRoot() {
     return rootView;
   }
 
@@ -55,13 +83,51 @@ public final class ActivityRecommendationsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.textView;
-      TextView textView = ViewBindings.findChildViewById(rootView, id);
-      if (textView == null) {
+      id = R.id.recommendButton;
+      Button recommendButton = ViewBindings.findChildViewById(rootView, id);
+      if (recommendButton == null) {
         break missingId;
       }
 
-      return new ActivityRecommendationsBinding((ConstraintLayout) rootView, textView);
+      id = R.id.workoutOne;
+      TextView workoutOne = ViewBindings.findChildViewById(rootView, id);
+      if (workoutOne == null) {
+        break missingId;
+      }
+
+      id = R.id.workoutOneButton;
+      Button workoutOneButton = ViewBindings.findChildViewById(rootView, id);
+      if (workoutOneButton == null) {
+        break missingId;
+      }
+
+      id = R.id.workoutOneName;
+      TextView workoutOneName = ViewBindings.findChildViewById(rootView, id);
+      if (workoutOneName == null) {
+        break missingId;
+      }
+
+      id = R.id.workoutTwo;
+      TextView workoutTwo = ViewBindings.findChildViewById(rootView, id);
+      if (workoutTwo == null) {
+        break missingId;
+      }
+
+      id = R.id.workoutTwoButton;
+      Button workoutTwoButton = ViewBindings.findChildViewById(rootView, id);
+      if (workoutTwoButton == null) {
+        break missingId;
+      }
+
+      id = R.id.workoutTwoName;
+      TextView workoutTwoName = ViewBindings.findChildViewById(rootView, id);
+      if (workoutTwoName == null) {
+        break missingId;
+      }
+
+      return new ActivityRecommendationsBinding((RelativeLayout) rootView, recommendButton,
+          workoutOne, workoutOneButton, workoutOneName, workoutTwo, workoutTwoButton,
+          workoutTwoName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

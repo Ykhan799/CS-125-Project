@@ -8,6 +8,7 @@
     tools:context=".HomePage">
 
     <TextView
+        android:id="@+id/greetingText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hi, Name"
@@ -22,16 +23,17 @@
         android:text="Check on your progress today"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:translationY="340px"/>
 
     <TextView
+        android:id="@+id/levelText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Level ???"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:translationY="425px"/>
 
     <ProgressBar
@@ -44,12 +46,13 @@
         android:translationY="500px" />
 
     <ImageView
+        android:id="@+id/avatar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_directions_run_24"
-        android:translationY="800px"
-        android:scaleX="5"
-        android:scaleY="5"/>
+        android:src="@drawable/sprite_s1"
+        android:translationY="590px"
+        android:scaleX="0.75"
+        android:scaleY="0.75"/>
 
     <Button
         android:layout_width="800px"
@@ -60,19 +63,11 @@
         android:text="Edit your information"
         android:id="@+id/editInfoButton"/>
 
-    <Button
-        android:layout_width="800px"
-        android:layout_height="wrap_content"
-        android:translationY="1240px"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/black"
-        android:text="Customize your avatar"
-        android:id="@+id/customizeButton"/>
 
     <Button
         android:layout_width="800px"
         android:layout_height="wrap_content"
-        android:translationY="1350px"
+        android:translationY="1250px"
         android:layout_centerHorizontal="true"
         android:backgroundTint="#808080"
         android:text="Continue leveling up"

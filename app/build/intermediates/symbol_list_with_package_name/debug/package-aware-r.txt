@@ -2894,6 +2894,9 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable sprite_s1
+drawable sprite_s2
+drawable sprite_s3
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -2989,6 +2992,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id avatar
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3046,7 +3050,6 @@ id createAccountButton
 id currentState
 id custom
 id customPanel
-id customizeButton
 id cut
 id dark
 id date_picker_actions
@@ -3118,6 +3121,7 @@ id ghost_view_holder
 id gone
 id graph
 id graph_wrap
+id greetingText
 id group_divider
 id grouping
 id groups
@@ -3151,6 +3155,7 @@ id layout
 id left
 id leftToRight
 id legacy
+id levelText
 id light
 id line1
 id line3
@@ -3269,6 +3274,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id recommendButton
 id rectangles
 id reverseSawtooth
 id right
@@ -3377,7 +3383,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3423,6 +3428,12 @@ id wide
 id withText
 id with_icon
 id withinBounds
+id workoutOne
+id workoutOneButton
+id workoutOneName
+id workoutTwo
+id workoutTwoButton
+id workoutTwoName
 id wrap
 id wrap_content
 id wrap_content_constrained

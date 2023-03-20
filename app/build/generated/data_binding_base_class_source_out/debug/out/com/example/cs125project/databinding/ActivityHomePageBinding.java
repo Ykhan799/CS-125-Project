@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -21,10 +23,10 @@ public final class ActivityHomePageBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final Button continueButton;
+  public final ImageView avatar;
 
   @NonNull
-  public final Button customizeButton;
+  public final Button continueButton;
 
   @NonNull
   public final ProgressBar determinateBar;
@@ -33,16 +35,25 @@ public final class ActivityHomePageBinding implements ViewBinding {
   public final Button editInfoButton;
 
   @NonNull
+  public final TextView greetingText;
+
+  @NonNull
+  public final TextView levelText;
+
+  @NonNull
   public final Button logoutButton;
 
-  private ActivityHomePageBinding(@NonNull RelativeLayout rootView, @NonNull Button continueButton,
-      @NonNull Button customizeButton, @NonNull ProgressBar determinateBar,
-      @NonNull Button editInfoButton, @NonNull Button logoutButton) {
+  private ActivityHomePageBinding(@NonNull RelativeLayout rootView, @NonNull ImageView avatar,
+      @NonNull Button continueButton, @NonNull ProgressBar determinateBar,
+      @NonNull Button editInfoButton, @NonNull TextView greetingText, @NonNull TextView levelText,
+      @NonNull Button logoutButton) {
     this.rootView = rootView;
+    this.avatar = avatar;
     this.continueButton = continueButton;
-    this.customizeButton = customizeButton;
     this.determinateBar = determinateBar;
     this.editInfoButton = editInfoButton;
+    this.greetingText = greetingText;
+    this.levelText = levelText;
     this.logoutButton = logoutButton;
   }
 
@@ -73,15 +84,15 @@ public final class ActivityHomePageBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.continueButton;
-      Button continueButton = ViewBindings.findChildViewById(rootView, id);
-      if (continueButton == null) {
+      id = R.id.avatar;
+      ImageView avatar = ViewBindings.findChildViewById(rootView, id);
+      if (avatar == null) {
         break missingId;
       }
 
-      id = R.id.customizeButton;
-      Button customizeButton = ViewBindings.findChildViewById(rootView, id);
-      if (customizeButton == null) {
+      id = R.id.continueButton;
+      Button continueButton = ViewBindings.findChildViewById(rootView, id);
+      if (continueButton == null) {
         break missingId;
       }
 
@@ -97,14 +108,26 @@ public final class ActivityHomePageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.greetingText;
+      TextView greetingText = ViewBindings.findChildViewById(rootView, id);
+      if (greetingText == null) {
+        break missingId;
+      }
+
+      id = R.id.levelText;
+      TextView levelText = ViewBindings.findChildViewById(rootView, id);
+      if (levelText == null) {
+        break missingId;
+      }
+
       id = R.id.logoutButton;
       Button logoutButton = ViewBindings.findChildViewById(rootView, id);
       if (logoutButton == null) {
         break missingId;
       }
 
-      return new ActivityHomePageBinding((RelativeLayout) rootView, continueButton, customizeButton,
-          determinateBar, editInfoButton, logoutButton);
+      return new ActivityHomePageBinding((RelativeLayout) rootView, avatar, continueButton,
+          determinateBar, editInfoButton, greetingText, levelText, logoutButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

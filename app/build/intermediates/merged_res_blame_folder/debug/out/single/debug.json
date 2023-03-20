@@ -1,102 +1,118 @@
 [
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\drawable_sprite_s1.png.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\drawable\\sprite_s1.png"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "com.example.cs125project.app-pngs-45:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\layout_activity_about_you.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_about_you.xml"
+    },
+    {
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "com.example.cs125project.app-merged_res-50:/layout_activity_recommendations.xml.flat",
         "source": "com.example.cs125project.app-main-52:/layout/activity_recommendations.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\layout_activity_home_page.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_home_page.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\drawable_sprite_s3.png.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\drawable\\sprite_s3.png"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/drawable_baseline_email_24.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/drawable/baseline_email_24.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\drawable_baseline_email_24.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\drawable\\baseline_email_24.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/layout_activity_about_you.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/layout/activity_about_you.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/drawable_baseline_lock_24.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/drawable/baseline_lock_24.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/layout_login_page.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/layout/login_page.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/drawable_baseline_directions_run_24.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/drawable/baseline_directions_run_24.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/layout_activity_home_page.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/layout/activity_home_page.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\layout_activity_recommendations.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_recommendations.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/layout_activity_create_account.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/layout/activity_create_account.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\drawable_baseline_directions_run_24.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\drawable\\baseline_directions_run_24.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/xml_backup_rules.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\layout_activity_create_account.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\activity_create_account.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\layout_login_page.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\layout\\login_page.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\drawable_sprite_s2.png.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\drawable\\sprite_s2.png"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-pngs-45:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/layout_activity_main.xml.flat",
-        "source": "com.example.cs125project.app-main-52:/layout/activity_main.xml"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.cs125project.app-merged_res-50:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.cs125project.app-main-52:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-merged_res-50:\\drawable_baseline_lock_24.xml.flat",
+        "source": "C:\\Users\\ryann\\.gradle\\daemon\\7.4\\com.example.cs125project.app-main-52:\\drawable\\baseline_lock_24.xml"
     }
 ]

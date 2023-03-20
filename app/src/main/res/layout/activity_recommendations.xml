@@ -76,10 +76,20 @@
     <Button
         android:layout_width="650px"
         android:layout_height="wrap_content"
-        android:translationY="1600px"
+        android:translationY="1400px"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/black"
         android:text="Complete workout #2"
         android:id="@+id/workoutTwoButton"/>
+
+    <Button
+        android:layout_width="650px"
+        android:layout_height="wrap_content"
+        android:translationY="1600px"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/black"
+        android:text="Recommend me workouts!"
+        android:id="@+id/recommendButton"/>
+
 
 </RelativeLayout>
