@@ -1,5 +1,6 @@
 package com.example.cs125project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import kotlinx.android.synthetic.main.activity_about_you.*
+import android.widget.Button
+import android.widget.TextView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,6 +37,15 @@ class RecommendationScreen : AppCompatActivity() {
     private var offset: Int = 0
     private var atGym: Boolean = false
 
+    private lateinit var workout1Name: TextView
+    private lateinit var workout1Instructions: TextView
+    private lateinit var workout2Name: TextView
+    private lateinit var workout2Instructions: TextView
+
+    private lateinit var workout1Complete: Button
+    private lateinit var workout2Complete: Button
+
+
     fun randomOffset(number: Int): Int {
         var num = 0
         do {
@@ -49,6 +61,14 @@ class RecommendationScreen : AppCompatActivity() {
 
         userAuth = FirebaseAuth.getInstance()
         currentUser = userAuth.currentUser!!.email.toString().substringBefore("@")
+
+        workout1Instructions = findViewById(R.id.workoutOne)
+        workout1Name = findViewById(R.id.workoutOneName)
+        workout2Name = findViewById(R.id.workoutTwoName)
+        workout2Instructions = findViewById(R.id.workoutTwo)
+        workout1Complete = findViewById(R.id.workoutOneButton)
+        workout2Complete = findViewById(R.id.workoutTwoButton)
+
 
 
         //Get user Context
@@ -95,7 +115,8 @@ class RecommendationScreen : AppCompatActivity() {
             }
         })
         var workouts = mutableMapOf("key" to "value")
-        while(workouts.count() < 3) {
+        workouts.remove("key")
+        while(workouts.count() < 2) {
             if (buildMuscle) {
                 //Do Something
                 viewModel.getCustomPosts("strength", offset)
@@ -333,6 +354,31 @@ class RecommendationScreen : AppCompatActivity() {
                     }
                 })
             }
+        }
+        //Set workouts to front end
+        val workoutNames = workouts.keys
+        val workoutOne = workoutNames.elementAt(0)
+        val workoutTwo = workoutNames.elementAt(1)
+        val workoutOneInstructions = workouts[workoutOne]
+        val workoutTwoInstructions = workouts[workoutTwo]
+
+        workout1Name.text = workoutOne
+        workout2Name.text = workoutTwo
+        workout1Instructions.text = workoutOneInstructions
+        workout2Instructions.text = workoutTwoInstructions
+
+        workout1Complete.setOnClickListener{
+            userLevel.gainExp(20)
+            val recommendationToHomePage = Intent(this@RecommendationScreen, HomePage::class.java)
+            startActivity(recommendationToHomePage)
+            finish()
+        }
+
+        workout2Complete.setOnClickListener{
+            userLevel.gainExp(20)
+            val recommendationToHomePage = Intent(this@RecommendationScreen, HomePage::class.java)
+            startActivity(recommendationToHomePage)
+            finish()
         }
 
     }
