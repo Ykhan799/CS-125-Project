@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -59,6 +60,12 @@ class RecommendationScreen : AppCompatActivity() {
     }
 
     fun setFrontEnd(exercises: MutableMap<String, String>){
+        recommend.visibility = View.INVISIBLE
+        recommend.isEnabled = false
+        workout1Complete.visibility = View.VISIBLE
+        workout1Complete.isEnabled = true
+        workout2Complete.visibility = View.VISIBLE
+        workout2Complete.isEnabled = true
         val workoutNames = exercises.keys
         val workoutOne = workoutNames.elementAt(0)
         val workoutTwo = workoutNames.elementAt(1)

@@ -51,7 +51,9 @@
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/black"
         android:text="Complete workout #1"
-        android:id="@+id/workoutOneButton"/>
+        android:id="@+id/workoutOneButton"
+        android:visibility="invisible"
+        android:enabled="false"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -71,16 +73,19 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:translationY="1200px"/>
+        android:translationY="1200px"
+        />
 
     <Button
         android:layout_width="650px"
         android:layout_height="wrap_content"
-        android:translationY="1400px"
+        android:translationY="1600px"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/black"
         android:text="Complete workout #2"
-        android:id="@+id/workoutTwoButton"/>
+        android:id="@+id/workoutTwoButton"
+        android:visibility="invisible"
+        android:enabled="false"/>
 
     <Button
         android:layout_width="650px"
@@ -89,7 +94,9 @@
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/black"
         android:text="Recommend me workouts!"
-        android:id="@+id/recommendButton"/>
+        android:id="@+id/recommendButton"
+        android:visibility="visible"
+        android:enabled="true"/>
 
 
 </RelativeLayout>
