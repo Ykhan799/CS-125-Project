@@ -27,6 +27,7 @@ class AboutYou : AppCompatActivity() {
     private lateinit var currentUser: String
     private val TAG = "AboutYou"
     private lateinit var userLevel: Level
+    private var writeLevel = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +51,7 @@ class AboutYou : AppCompatActivity() {
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.hasChild(currentUser)) {
+                    writeLevel = false
                     readFromDatabase()
                 }
             }
@@ -140,7 +142,11 @@ class AboutYou : AppCompatActivity() {
         databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option2Child).setValue("")
         databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option3Child).setValue("")
         databaseReference.child(currentUser).child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option4Child).setValue("")
-        databaseReference.child(currentUser).child(Constants.levelChild).setValue(userLevel)
+
+        // Prevents overriding level
+        if (writeLevel) {
+            databaseReference.child(currentUser).child(Constants.levelChild).setValue(userLevel)
+        }
 
 
         // add check box values to database only if they are checked. If not checked, add empty string instead
@@ -169,14 +175,6 @@ class AboutYou : AppCompatActivity() {
                 val option2 = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option2Child).value
                 val option3 = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option3Child).value
                 val option4 = it.child(Constants.surveyChild).child(Constants.preferencesChild).child(Constants.option4Child).value
-                val level = it.child(Constants.levelChild).value
-
-                // prevents level from being reset when user already exists
-                if (level is Level) {userLevel = level}
-
-                Log.d(TAG, userLevel.currentLevel.toString())
-                Log.d(TAG, userLevel.currentExperience.toString())
-                Log.d(TAG, userLevel.nextExperience.toString())
 
                 // updates all the labels
                 userWeight.setText(weight.toString())

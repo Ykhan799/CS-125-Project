@@ -71,30 +71,33 @@ class HomePage : AppCompatActivity() {
         val userReference = databaseReference.child(currentUser)
         userReference.get().addOnSuccessListener {
             if (it.exists()) {
-                val uLevel = it.child(Constants.levelChild).value
+                val uCurrentLevel = it.child(Constants.levelChild).child(Constants.currentLevelChild).value
+                val uCurrentExperience = it.child(Constants.levelChild).child(Constants.currentExperienceChild).value
+                val uNextExperience = it.child(Constants.levelChild).child(Constants.nextExperienceChild).value
 
-                if (uLevel is Level) {
-                    userLevel = uLevel
+                userLevel.currentLevel = uCurrentLevel.toString().toInt()
+                userLevel.currentExperience = uCurrentExperience.toString().toInt()
+                userLevel.nextExperience = uNextExperience.toString().toDouble()
+                Log.d("HomePage", "Level: " + userLevel.currentLevel.toString())
+                Log.d("HomePage", "Experience: " + userLevel.currentExperience.toString())
+                Log.d("HomePage", "Next Experience: " + userLevel.nextExperience.toString())
+
+                // Update level textview
+                greetingText.text = "Hi " + currentUser + "!"
+                levelText.text = "Level " + userLevel.currentLevel.toString()
+
+                // Update progress bar based on xp
+                determinateBar.progress = userLevel.currentExperience
+
+                // Update avatar sprite based on level
+                if (userLevel.currentLevel > 5 && userLevel.currentLevel <= 10) {
+                    avatar.setImageResource(R.drawable.sprite_s2)
+                } else if (userLevel.currentLevel > 10) {
+                    avatar.setImageResource(R.drawable.sprite_s3)
                 }
             } else {
                 Log.d("Context", "User does not exist")
             }
-        }
-
-        Log.d("HomePage", userLevel.currentLevel.toString())
-
-        // Update level textview
-        greetingText.text = "Hi " + currentUser + "!"
-        levelText.text = "Level " + userLevel.currentLevel.toString()
-
-        // Update progress bar based on xp
-        determinateBar.progress = userLevel.currentExperience
-
-        // Update avatar sprite based on level
-        if (userLevel.currentLevel > 5 && userLevel.currentLevel <= 10) {
-            avatar.setImageResource(R.drawable.sprite_s2)
-        } else if (userLevel.currentLevel > 10) {
-            avatar.setImageResource(R.drawable.sprite_s3)
         }
     }
 }

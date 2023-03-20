@@ -16,5 +16,8 @@ class Constants {
         const val option3Child = "Option 3"
         const val option4Child = "Option 4"
         const val levelChild = "Level"
+        const val currentLevelChild = "currentLevel"
+        const val currentExperienceChild = "currentExperience"
+        const val nextExperienceChild = "nextExperience"
     }
 }
