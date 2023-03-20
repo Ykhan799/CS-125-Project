@@ -34,15 +34,19 @@
         android:textSize="20sp"
         android:translationY="450px"/>
 
-    <TextView
-        android:id="@+id/workoutOne"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="workouts"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:translationY="550px"/>
+        android:layout_height="200px"
+        android:translationY="550px">
+        <TextView
+            android:id="@+id/workoutOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="workouts"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </ScrollView>
 
     <Button
         android:layout_width="650px"
@@ -65,16 +69,19 @@
         android:textSize="20sp"
         android:translationY="1100px"/>
 
-    <TextView
-        android:id="@+id/workoutTwo"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="workouts"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:translationY="1200px"
-        />
+        android:layout_height="200px"
+        android:translationY="1200px">
+        <TextView
+            android:id="@+id/workoutTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="workouts"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </ScrollView>
 
     <Button
         android:layout_width="650px"
