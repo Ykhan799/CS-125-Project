@@ -91,7 +91,7 @@ class HomePage : AppCompatActivity() {
         determinateBar.progress = userLevel.currentExperience
 
         // Update avatar sprite based on level
-        if (userLevel.currentLevel > 5 || userLevel.currentLevel <= 10) {
+        if (userLevel.currentLevel > 5 && userLevel.currentLevel <= 10) {
             avatar.setImageResource(R.drawable.sprite_s2)
         } else if (userLevel.currentLevel > 10) {
             avatar.setImageResource(R.drawable.sprite_s3)
